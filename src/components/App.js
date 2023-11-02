@@ -7,7 +7,7 @@ const App = () => {
 
   React.useState(() => {
     fetch('https://dummyjson.com/products')
-    .then(e => e.text())
+    .then(e => e.json())
     .then(e => setData(e))
     .catch((e) => setData('An error occurred: ' + e.message))
   }, [])
