@@ -9,14 +9,16 @@ const App = () => {
     fetch('https://dummyjson.com/products')
     .then(e => e.text())
     .then(e => setData(e))
-    .catch((e) => setData('No data found'))
+    .catch((e) => setData('An error occurred: ' + e.message))
   }, [])
 
   return (
     <div>
         {/* Do not remove the main div */}
         {data != 'loading...' && <h1>Data Fetched from API</h1>}
-        <pre>{data}</pre>
+        <pre>
+          {data}
+        </pre>
     </div>
   )
 }
